@@ -17,6 +17,7 @@
 	"extensions": [
 		"dbaeumer.vscode-eslint"
 	],
+<<<<<<< HEAD
 	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [3000],
@@ -27,3 +28,17 @@
 	// Comment out the next line to run as root instead.
 	"remoteUser": "node"
 }
+=======
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+	"runArgs": [ 
+		// Comment out the next line to run as root instead. Linux users, update
+		// Dockerfile with your user's UID/GID if not 1000.
+		"-u", "node",
+		// The next line improves yarn install performance by creating a named volume
+		"-v", "try-node-node_modules:/workspaces/vscode-remote-try-node/node_modules"
+	],
+	"postCreateCommand": "sudo chown node:node node_modules && yarn install",
+}
+>>>>>>> origin/clantz/named-volume-node_modules
